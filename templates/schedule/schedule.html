@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Расписание</title>
+</head>
+<body>
+{% for i in schedule %}
+  <p>{{ i.date }} {{ i.content }} {{ i.lesson_materials }}</p>
+{% endfor %}
+</body>
+</html>

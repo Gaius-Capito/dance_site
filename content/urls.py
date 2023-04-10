@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views
+from content import views
 
 
 app_name = 'content'
