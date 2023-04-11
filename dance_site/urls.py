@@ -6,5 +6,5 @@ urlpatterns = [
     path('auth/', include('users.urls', namespace='users')),
     path('', include('content.urls', namespace='content')),
     path('schedule/', include('schedule.urls', namespace='schedule')),
-    path('videolessons/', include('videolessons.urls', namespace='videolessons'))
+    path('courses/', include('courses.urls', namespace='courses'))
 ]

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'content.apps.ContentConfig',
     'schedule.apps.ScheduleConfig',
-    'videolessons.apps.VideoConfig',
+    'courses.apps.VideoConfig',
 ]
 
 MIDDLEWARE = [

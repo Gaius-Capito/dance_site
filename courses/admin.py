@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from videolessons.models import Course, CourseVideo, Video
+from courses.models import Course, CourseVideo, Video
 
 
 class CourseAdmin(admin.ModelAdmin):
