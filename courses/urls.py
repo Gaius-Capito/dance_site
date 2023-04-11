@@ -8,5 +8,5 @@ app_name = 'courses'
 
 urlpatterns = [
     path('', views.courses, name='courses'),
-    path('lessons/', views.video, name='lessons'),
+    path('lessons/<slug:slug>/', views.video, name='lessons'),
 ]

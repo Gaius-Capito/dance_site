@@ -9,6 +9,7 @@ class CourseAdmin(admin.ModelAdmin):
         'title',
         'preview',
         'description',
+        'slug',
     )
     empty_value_display = '-пусто-'
 

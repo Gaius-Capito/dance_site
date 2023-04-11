@@ -8,6 +8,7 @@ class Course(models.Model):
     )
     preview = models.CharField('ссылка на картинку', max_length=32)
     description = models.TextField('Описание курсов')
+    slug = models.SlugField(default='panda', unique=True)
 
     class Meta:
         verbose_name = 'Курс'
@@ -39,6 +40,3 @@ class CourseVideo(models.Model):
 
     def __str__(self):
         return f'{self.course} {self.video}'
-
-
-
