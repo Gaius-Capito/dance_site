@@ -10,8 +10,10 @@ class ContentAdmin(admin.ModelAdmin):
         'content_main',
         'title_about',
         'content_about',
+        'image_about_us',
     )
     empty_value_display = '-пусто-'
+    exclude = ('image_about_us',)
 
 
 admin.site.register(Content, ContentAdmin)

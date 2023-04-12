@@ -8,6 +8,7 @@ class Content(models.Model):
     )
     content_main = models.TextField()
     title_about = models.CharField(max_length=120)
+    image_about_us = models.ImageField('картинка "about_us"', upload_to='static/img/content/')
     content_about = models.TextField()
 
     class Meta:

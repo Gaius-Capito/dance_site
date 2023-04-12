@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %} IvanovBunina {% endblock %}
 {% block content %}
 <body>
@@ -27,7 +28,7 @@
       <div class="bg-img"></div>
       <div class="text-container">
         <h1 class="title">{{ content.title_main }}</h1>
-        <p class="subtitle">{{ content.content_main|linebreaksbr  }}</p>
+        <p class="subtitle">{{ content.content_main|linebreaksbr }}</p>
         <div class="buttons">
           <a href="#prices" class="btn btn-primary">OUR PRICES</a>
           <a href="#about" class="btn btn-secondary">About DANCE FITNESS</a>
@@ -37,14 +38,11 @@
 
     <section id="about">
       <div class="about-container">
-        <img src="/static/media/content/20150807_134635.jpg" alt="О нас">
+        <img src="{% static 'img/content/20150807_134635.jpg' %}" alt="О нас">
         <div class="about-text">
-          <h2>About DANCE FITNESS</h2>
+          <h2>{{ content.title_about }}</h2>
           <hr>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse convallis, nibh sed iaculis ultricies, augue nisi vulputate orci, eget euismod felis elit vel enim. Mauris convallis ullamcorper tellus, quis volutpat odio posuere a. Vestibulum ultrices, justo id faucibus consectetur, lorem mauris pulvinar mi, ut mollis magna sapien vel enim. Integer blandit enim eget erat lobortis, vel scelerisque ex lobortis. </p>
-          <p>Curabitur vel dolor euismod, sodales leo vitae, aliquam eros. Fusce ultrices vel est a sagittis. Vestibulum tristique tellus in lectus pellentesque, eu malesuada mi ullamcorper. Donec condimentum ante at sem auctor, sit amet dictum sapien aliquam. </p>
-          <p>Aliquam sit amet erat ultrices, maximus augue sed, suscipit justo. Morbi ut neque eu orci faucibus ullamcorper vel ut lorem. Vivamus eleifend ante nec erat congue, eget volutpat quam posuere. Donec sed arcu quam. Nam imperdiet dolor libero, vel pulvinar arcu dapibus in. Aliquam volutpat ex eget libero dignissim auctor.</p>
-          <p>Quisque sed blandit ante, in sagittis mi. Etiam vel metus vel lorem venenatis laoreet. Curabitur bibendum libero quis metus suscipit, ac sollicitudin est molestie. Sed et sapien eu urna rutrum tincidunt at vel elit. Sed eleifend ac magna eu hendrerit. </p>
+          <p>{{ content.content_about|linebreaksbr }}</p>
         </div>
       </div>
     </section>
