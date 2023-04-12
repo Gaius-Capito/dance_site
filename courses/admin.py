@@ -19,8 +19,14 @@ class VideoAdmin(admin.ModelAdmin):
         'pk',
         'title',
         'url',
+        'courses',
     )
     empty_value_display = '-пусто-'
+
+    def courses(self, obj):
+        return ", ".join([course.title for course in obj.course_video.all()])
+
+    courses.short_description = 'Курсы'
 
 
 class CourseVideoAdmin(admin.ModelAdmin):

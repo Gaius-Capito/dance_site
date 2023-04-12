@@ -35,8 +35,20 @@ class Video(models.Model):
 
 
 class CourseVideo(models.Model):
-    video = models.ForeignKey(Video, on_delete=models.CASCADE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    video = models.ForeignKey(
+        Video,
+        on_delete=models.CASCADE,
+        verbose_name='видео'
+    )
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        verbose_name='курсы'
+    )
+
+    class Meta:
+        verbose_name = 'Курсы и видео'
+        verbose_name_plural = 'Курсы и видео'
 
     def __str__(self):
         return f'{self.course} {self.video}'
