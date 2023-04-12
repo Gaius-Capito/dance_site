@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'core.apps.CoreConfig',
     'content.apps.ContentConfig',
-    'schedule.apps.ScheduleConfig'
+    'schedule.apps.ScheduleConfig',
+    'courses.apps.VideoConfig',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,9 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGOUT_REDIRECT_URL = 'content:index'
+
+LOGIN_URL = 'users:signup'
+
+LOGIN_REDIRECT_URL = 'content:index'

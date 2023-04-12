@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<p>Курсы</p>
+  {% for course in courses %}
+    <div style="border: 1px solid #0c4128">
+      <p>{{ course.title }}</p>
+      <p>{{ course.preview }}</p>
+      <p>{{ course.description }}</p>
+      <a href="{% url 'courses:lessons' course.slug %}">Ссылка на курсы</a></li>
+    </div>
+
+  {% endfor %}
+</body>
+</html>
