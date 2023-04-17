@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Content
+from .models import Content, Images
 
 
 class ContentAdmin(admin.ModelAdmin):
@@ -14,4 +14,13 @@ class ContentAdmin(admin.ModelAdmin):
     empty_value_display = '-пусто-'
 
 
+class ImagesAdmin(admin.ModelAdmin):
+    list_display = (
+        'pk',
+        'image_about_us',
+        'image_about_them',
+    )
+
+
 admin.site.register(Content, ContentAdmin)
+admin.site.register(Images, ImagesAdmin)
