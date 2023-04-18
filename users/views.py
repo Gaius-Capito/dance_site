@@ -5,6 +5,7 @@ from users.forms import CreationForm
 
 from users.models import UserAccess
 
+
 class SignUp(CreateView):
     form_class = CreationForm
     success_url = reverse_lazy('content:index')

@@ -14,13 +14,11 @@ class UserAccess(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Пользователь'
     )
-    available_courses = models.ForeignKey(
+    available_courses = models.ManyToManyField(
         Course,
         related_name='available_courses',
         verbose_name='Доступные курсы',
-        on_delete=models.CASCADE,
-        null=True
-    )
+        )
 
     class Meta:
         verbose_name = 'Доступ к курсам'
