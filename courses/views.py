@@ -7,6 +7,8 @@ from users.models import UserAccess
 
 def courses(request):
     user_access = UserAccess.objects.filter(user=request.user).first()
+    if not user_access:
+        raise PermissionDenied
     available_courses = user_access.available_courses.all()
     courses = Course.objects.filter(
         id__in=available_courses.values_list('id', flat=True))
