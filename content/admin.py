@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Content, Images
+from content.models import Content, Images
 
 
 class ContentAdmin(admin.ModelAdmin):
