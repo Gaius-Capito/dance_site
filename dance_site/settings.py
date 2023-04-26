@@ -3,7 +3,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = ''
+SECRET_KEY = '1'
 
 DEBUG = True
 
@@ -16,11 +16,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'users.apps.UsersConfig',
     'core.apps.CoreConfig',
     'content.apps.ContentConfig',
     'schedule.apps.ScheduleConfig',
     'courses.apps.VideoConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
