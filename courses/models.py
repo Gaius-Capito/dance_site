@@ -23,7 +23,7 @@ class Video(models.Model):
         'Название видеоурока',
         max_length=120
     )
-    url = models.CharField('ссылка на видео', max_length=32)
+    url = models.CharField('ссылка на видео', max_length=150)
     course_video = models.ManyToManyField(Course, through='CourseVideo')
 
     class Meta:

@@ -1,55 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Видео</title>
-  <style>
-    .video-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    .video {
-      width: calc(25% - 10px);
-      margin-bottom: 20px;
-    }
-
-    .video iframe {
-      width: 100%;
-      height: 315px;
-    }
-
-    @media screen and (max-width: 768px) {
-      .video {
-        width: calc(50% - 10px);
-      }
-    }
-
-    @media screen and (max-width: 480px) {
-      .video {
-        width: 100%;
-      }
-    }
-
-    .clear {
-      clear: both;
-    }
-  </style>
-</head>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} IvanovBunina {% endblock %}
+{% block content %}
 <body>
-  <h1>Видео</h1>
+    <main>
+        <section class="videoLessons">
+            <h2>Видеоуроки</h2>
 
-  <div class="video-container">
-    {% for video in videos %}
-      {% if forloop.counter0|divisibleby:4 %}
-        <div class="clear"></div>
-      {% endif %}
-      <div class="video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-    {% endfor %}
-    <div class="clear"></div>
-  </div>
+            <div class="list"></div>
+
+            <button>Показать еще</button>
+        </section>
+    </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../app.js"></script>
+    <script>
+        const items = [
+            {% for video in videos %}
+
+               { id: {{ forloop.counter }}, name: '{{video.title}}', video: '{{ video.url }}' },
+
+            {% endfor %}
+        ]
+
+        document.querySelector('.videoLessons .list').innerHTML = items.map(item => `
+            <div>
+                <iframe width="350" height="200" src="${item.video}"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+                <h3>${item.name}</h3>
+            </div>
+        `).join(' ')
+    </script>
 </body>
-</html>
+
+{% endblock %}
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#  <meta charset="UTF-8">#}
+{#  <title>Видео</title>#}
+{#  <style>#}
+{#    .video-container {#}
+{#      display: flex;#}
+{#      flex-wrap: wrap;#}
+{#      justify-content: space-between;#}
+{#    }#}
+{##}
+{#    .video {#}
+{#      width: calc(25% - 10px);#}
+{#      margin-bottom: 20px;#}
+{#    }#}
+{##}
+{#    .video iframe {#}
+{#      width: 100%;#}
+{#      height: 315px;#}
+{#    }#}
+{##}
+{#    @media screen and (max-width: 768px) {#}
+{#      .video {#}
+{#        width: calc(50% - 10px);#}
+{#      }#}
+{#    }#}
+{##}
+{#    @media screen and (max-width: 480px) {#}
+{#      .video {#}
+{#        width: 100%;#}
+{#      }#}
+{#    }#}
+{##}
+{#    .clear {#}
+{#      clear: both;#}
+{#    }#}
+{#  </style>#}
+{#</head>#}
+{#<body>#}
+{#  <h1>Видео</h1>#}
+{##}
+{#  <div class="video-container">#}
+
+{#      <div class="video">#}
+{#          <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>#}
+{#      </div>#}
+{#    {% endfor %}#}
+{#    <div class="clear"></div>#}
+{#  </div>#}
+{#</body>#}
+{#</html>#}

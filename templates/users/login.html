@@ -1,33 +1,26 @@
-% extends "base.html" %}
+{% extends "base.html" %}
 {% block title %}Войти{% endblock %}
 {% block content %}
-{% load user_filters %}
-  <div class="row justify-content-center">
-    <div class="col-md-8 p-5">
-      <div class="card">
-        <div class="card-header">
-          Войти на сайт
-        </div>
-        <div class="card-body">
-{#          {% include 'includes/form_exception_handling.html' %}#}
-          <form method="post"
-            {% if action_url %}
-              action="{% url action_url %}"
-            {% endif %}
-          >
+  <section class="auth">
+      <h2>Вход</h2>
+
+      <form method="POST" action="{% url 'users:login' %}">
           {% csrf_token %}
-          {% include 'includes/form_fields.html' %}
-          <div class="col-md-6 offset-md-4">
-            <button type="submit" class="btn btn-primary">
-              Войти
-            </button>
-{#            <a href="{% url 'users:password_reset' %}" class="btn btn-link">#}
-{#              Забыли пароль?#}
-            </a>
+          <div class="input input1" onclick="focusInput(1)">
+              <label>Логин</label>
+              <input type="text" id="input1" name="username" placeholder="Введите свой логин">
           </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+
+          <div class="input input2" onclick="focusInput(2)">
+              <label>Пароль</label>
+              <input type="password" id="input2"  name="password" placeholder="**********">
+          </div>
+
+          <p>Забыли пароль?</p>
+
+          <button type="submit">Войти</button>
+      </form>
+
+      <p>Еще нет аккаунта? <a href={% url 'users:signup' %}>Регистрация</a></p>
+</section>
 {% endblock %}
