@@ -1,10 +1,12 @@
 from django.urls import path, include
-from rest_framework import routers
-from api.views import ScheduleViewSet
+from rest_framework.routers import DefaultRouter
+from api.views import ScheduleListView
 
-router = routers.DefaultRouter()
-router.register('schedules', ScheduleViewSet, basename='schedules')
+router = DefaultRouter()
+# router.register('schedules', ScheduleListView, basename='schedules')
 
 urlpatterns = [
-    path('', include(router.urls)),
+    # path('', include(router.urls)),
+    path('schedules/', ScheduleListView.as_view()),
+    path('', include('djoser.urls.jwt')),
 ]
