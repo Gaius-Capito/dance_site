@@ -1,19 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-<p>Курсы</p>
-  {% for course in courses %}
-    <div style="border: 1px solid #0c4128">
-      <p>{{ course.title }}</p>
-      <p>{{ course.preview }}</p>
-      <p>{{ course.description }}</p>
-      <a href="{% url 'courses:lessons' course.slug %}">Ссылка на курсы</a></li>
-    </div>
-
-  {% endfor %}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Курсы {% endblock %}
+{% block content %}
 </body>
-</html>
+    <main>
+        <section class="courses">
+            <h2>Курсы</h2>
+
+            <div class="list"></div>
+
+            <button>Показать еще</button>
+        </section>
+    </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="{% static '/js/app.js' %}"></script>
+    <script>
+        const items = [
+            {% for course in courses %}
+
+               { id: {{ forloop.counter }}, image: '{{ course.preview }}', title: '{{course.title}}', price: '$15', description: '{{ course.description }}', link: '{% url 'courses:lessons' course.slug %}' },
+
+            {% endfor %}
+            {#{ id: 1, image: 'courses_1.png', title: 'Курс #1', price: '$15', description: 'Lorem ipsum dolor sit amet consectetur. Semper molestie netus urna non consequat senectus sit orci. Ipsum quam fermentum ornare diam lacus est bibendum nulla sit.' },#}
+            {#{ id: 2, image: 'courses_2.png', title: 'Курс #2', price: '$150', description: 'Lorem ipsum dolor sit amet consectetur. Semper molestie netus urna non consequat senectus sit orci. Ipsum quam fermentum ornare diam lacus est bibendum nulla sit.' },#}
+            {#{ id: 3, image: 'courses_3.png', title: 'Курс #3', price: '$34', description: 'Lorem ipsum dolor sit amet consectetur. Semper molestie netus urna non consequat senectus sit orci. Ipsum quam fermentum ornare diam lacus est bibendum nulla sit.' },#}
+        ]
+
+        document.querySelector('.courses .list').innerHTML = items.map(item => `
+            <div class="courseItem">
+                <img src="${item.image}" alt="">
+
+                <div class="box">
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                    <div>
+                        <a href="${item.link}">Ссылка на курсы</a>
+                        <h2>${item.price}</h2>
+                    </div>
+                </div>
+            </div>
+        `).join(' ')
+    </script>
+</body>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#  <meta charset="UTF-8">#}
+{#  <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{#<p>Курсы</p>#}
+{#  {% for course in courses %}#}
+{#    <div style="border: 1px solid #0c4128">#}
+{#      <p>{{ course.title }}</p>#}
+{#      <p>{{ course.preview }}</p>#}
+{#      <p>{{ course.description }}</p>#}
+{#      <a href="{% url 'courses:lessons' course.slug %}">Ссылка на курсы</a></li>#}
+{#    </div>#}
+{##}
+{#  {% endfor %}#}
+{#</body>#}
+{#</html>#}

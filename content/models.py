@@ -9,6 +9,7 @@ class Content(models.Model):
     content_main = models.TextField()
     title_about = models.CharField(max_length=120)
     content_about = models.TextField()
+    price = models.CharField(max_length=5)
 
     class Meta:
         verbose_name = 'Содержание главной страницы'
