@@ -1,0 +1,14 @@
+{% load static %}
+{% with request.resolver_match.view_name as view_name %}
+<ion-icon class="close" onclick="openMenu()" name="close-outline"></ion-icon>
+
+<ul>
+    <li class="active">Главная</li>
+    <li><a href="{% url 'schedule:schedule' %}">Расписание</a></li>
+    <li>Курсы</li>
+    <li>Оплата</li>
+    <li>Контакты</li>
+</ul>
+
+<button>Авторизация</button>
+{% endwith %}

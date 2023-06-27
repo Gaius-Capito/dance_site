@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Войти{% endblock %}
+{% block content %}
+  <section class="auth">
+      <h2>Вход</h2>
+
+      <form method="POST" action="{% url 'users:login' %}">
+          {% csrf_token %}
+          <div class="input input1" onclick="focusInput(1)">
+              <label>Логин</label>
+              <input type="text" id="input1" name="username" placeholder="Введите свой логин">
+          </div>
+
+          <div class="input input2" onclick="focusInput(2)">
+              <label>Пароль</label>
+              <input type="password" id="input2"  name="password" placeholder="**********">
+          </div>
+
+          <p>Забыли пароль?</p>
+
+          <button type="submit">Войти</button>
+      </form>
+
+      <p>Еще нет аккаунта? <a href={% url 'users:signup' %}>Регистрация</a></p>
+</section>
+{% endblock %}

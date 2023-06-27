@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} IvanovBunina {% endblock %}
+{% block content %}
+<body>
+    <main>
+        <section class="videoLessons">
+            <h2>Видеоуроки</h2>
+
+            <div class="list"></div>
+
+            <button>Показать еще</button>
+        </section>
+    </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="{% static '/js/app.js' %}/app.js"></script>
+    <script>
+        const items = [
+            {% for video in videos %}
+
+               { id: {{ forloop.counter }}, name: '{{video.title}}', video: '{{ video.url }}' },
+
+            {% endfor %}
+        ]
+
+        document.querySelector('.videoLessons .list').innerHTML = items.map(item => `
+            <div>
+                <iframe width="350" height="200" src="${item.video}"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+                <h3>${item.name}</h3>
+            </div>
+        `).join(' ')
+    </script>
+</body>
+
+{% endblock %}

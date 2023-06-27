@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} IvanovBunina {% endblock %}
+{% block content %}
+<body>
+  <section class="home">
+      <div>
+          <h1>DANCE FITNESS</h1>
+          <p>Lorem ipsum dolor sit amet consectetur. Semper molestie netus urna non consequat senectus sit orci.
+              Ipsum quam fermentum ornare diam lacus est bibendum nulla sit. Suspendisse nisi ipsum enim sed enim
+              aliquam euismod. Donec ullamcorper massa integer in. Neque ultricies dui maecenas id. Ultrices amet
+              facilisis quam est. </p>
+      </div>
+  </section>
+
+  <section class="home">
+      <div class="box">
+          <h2>О нас</h2>
+          <p>Lorem ipsum dolor sit amet consectetur. Semper molestie netus urna non consequat senectus sit orci.
+              Ipsum
+              quam fermentum ornare diam lacus est bibendum nulla sit.</p>
+
+          <div class="items">
+              <div>
+                  <img src="{{ images.image_about_us }}" alt="">
+                  <h3>Lorem ipsum</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur. Semper molestie netus urna non consequat senectus sit
+                      orci. Ipsum quam fermentum ornare diam lacus est bibendum nulla sit.</p>
+              </div>
+
+              <div>
+                  <img src="{{ images.image_about_them }}" alt="">
+                  <h3>Lorem ipsum</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur. Semper molestie netus urna non consequat senectus sit
+                      orci. Ipsum quam fermentum ornare diam lacus est bibendum nulla sit.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="home">
+      <iframe width="750" height="450" src="https://www.youtube.com/embed/naZCYv3BZM8"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+  </section>
+
+  <section class="home">
+      <div class="box">
+          <h2>Контакты</h2>
+
+          <div class="minibox">
+              <a href="tel:+79254631532">
+                  <p>+7 925 463 15 32</p>
+              </a>
+
+              <a href="mailto:ivanov_bunina@mail.ru">
+                  <p>ivanov_bunina@mail.ru</p>
+              </a>
+
+              <div class="social">
+                  <div>
+                      <img src="{% static '/img/content/instagram.svg' %}" alt="">
+                  </div>
+
+                  <div>
+                      <img src="{% static '/img/content/telegram.svg' %}" alt="">
+                  </div>
+
+                  <div>
+                      <img src="{% static '/img/content/youtube.svg' %}" alt="">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+</body>
+{% endblock %}
