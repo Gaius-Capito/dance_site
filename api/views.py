@@ -1,10 +1,14 @@
-from rest_framework.generics import ListAPIView
-from schedule.models import Schedule
+from rest_framework import viewsets
+from api.permissions import IsAdminOrReadOnly
+
+
 from api.serializers import ScheduleSerializer
+from schedule.models import Schedule
 
 
-class ScheduleListView(ListAPIView):
+class ScheduleViewSet(viewsets.ModelViewSet):
     serializer_class = ScheduleSerializer
+    permission_classes = (IsAdminOrReadOnly,)
 
     def get_queryset(self):
         user_id = self.request.user.id
