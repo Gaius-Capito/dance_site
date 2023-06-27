@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Расписание {% endblock %}
+{% block content %}
+<main>
+        <section class="contacts">
+            <div class="box">
+                <h2>Контакты</h2>
+
+                <div class="minibox">
+                    <a href="tel:+79254631532">
+                        <p>+7 925 463 15 32</p>
+                    </a>
+
+                    <a href="mailto:ivanov_bunina@mail.ru">
+                        <p>ivanov_bunina@mail.ru</p>
+                    </a>
+
+                    <div class="social">
+                        <div>
+                            <img src="{% static '/img/content/instagram.svg' %}" alt="">
+                        </div>
+
+                        <div>
+                            <img src="{% static '/img/content/telegram.svg' %}" alt="">
+                        </div>
+
+                        <div>
+                            <img src="{% static '/img/content/youtube.svg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../app.js"></script>
+{% endblock %}

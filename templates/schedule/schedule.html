@@ -1,12 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Расписание</title>
-</head>
-<body>
-{% for i in schedule %}
-  <p>{{ i.date }} {{ i.content }} {{ i.lesson_materials }}</p>
-{% endfor %}
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Расписание {% endblock %}
+{% block content %}
+  <main>
+      <section class="schedule">
+          <h2>Расписание</h2>
+
+          <div class="list"></div>
+
+          <button>Показать еще</button>
+      </section>
+  </main>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="{% static '/js/app.js' %}"></script>
+<script>
+        const items = [
+            {% for row in schedule %}
+            {
+                id: {{ forloop.counter }},
+                title: 'Тема #1',
+                date: '{{ row.date }}',
+                text: '{{ row.content }}',
+                materials: '{{ row.lesson_materials }}',
+            },
+            {% endfor %}
+        ]
+
+        document.querySelector('.schedule .list').innerHTML = items.map(item => `<div class="list">
+<div class="item ${`item${item.id}`}">
+    <div class="top" onclick="activeItem(${item.id})">
+        <div>
+            <h3>${item.title}</h3>
+            <p>${item.date}</p>
+        </div>
+
+        <ion-icon name="chevron-down-outline"></ion-icon>
+    </div>
+
+    <div class="content">
+        <p>${item.text}</p>
+
+        <div class="materials">
+            <p>Видео и фото материалы урока</p>
+
+            <div class="items">
+                <div class="matItem">
+                    <p>${item.materials}</p>
+                </div>
+
+             <div class="line"></div>
+            </div>
+        </div>
+    </div>
+</div>`).join(' ')
+    </script>
+{% endblock %}
+

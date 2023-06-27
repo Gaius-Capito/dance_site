@@ -6,7 +6,7 @@
     <li class="{% if view_name  == 'schedule:schedule' %}active{% endif %}"> <a href="{% url 'schedule:schedule' %}">Расписание</a></li>
     <li class="{% if view_name  == 'courses:courses' %}active{% endif %}"> <a href="{% url 'courses:courses' %}">Курсы</a></li>
 {#    <li>Оплата</li>#}
-    <li>Контакты</li>
+    <li class="{% if view_name  == 'content:contacts' %}active{% endif %}"> <a href="{% url 'content:contacts' %}">Контакты</a></li>
 </ul>
 
 <div class="lang">
