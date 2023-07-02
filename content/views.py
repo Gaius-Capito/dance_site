@@ -11,3 +11,7 @@ def index(request):
         'images': images,
     }
     return render(request, 'content/index.html', context)
+
+
+def contacts(request):
+    return render(request, 'content/contacts.html')

@@ -7,4 +7,5 @@ from schedule.models import Schedule
 @login_required
 def schedule(request):
     content = Schedule.objects.filter(user=request.user).all()
-    return render(request, 'schedule/schedule.html', {'schedule': content})
+    return render(request, 'schedule/schedule.html', {'schedule': content,
+                                                      'five': range(5)})
