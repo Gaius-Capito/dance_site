@@ -5,20 +5,15 @@
 <body>
   <section class="home">
       <div>
-          <h1>DANCE FITNESS</h1>
-          <p>Lorem ipsum dolor sit amet consectetur. Semper molestie netus urna non consequat senectus sit orci.
-              Ipsum quam fermentum ornare diam lacus est bibendum nulla sit. Suspendisse nisi ipsum enim sed enim
-              aliquam euismod. Donec ullamcorper massa integer in. Neque ultricies dui maecenas id. Ultrices amet
-              facilisis quam est. </p>
+          <h1>{{ content.title_main }}</h1>
+          <p>{{ content.content_main}} </p>
       </div>
   </section>
 
   <section class="home">
       <div class="box">
-          <h2>О нас</h2>
-          <p>Lorem ipsum dolor sit amet consectetur. Semper molestie netus urna non consequat senectus sit orci.
-              Ipsum
-              quam fermentum ornare diam lacus est bibendum nulla sit.</p>
+          <h2>{{ content.title_about}}</h2>
+          <p>{{ content.content_about}}</p>
 
           <div class="items">
               <div>
@@ -50,12 +45,12 @@
           <h2>Контакты</h2>
 
           <div class="minibox">
-              <a href="tel:+79254631532">
-                  <p>+7 925 463 15 32</p>
+              <a href="tel:{{ tel_number }}">
+                  <p>{{ tel_number }}</p>
               </a>
 
-              <a href="mailto:ivanov_bunina@mail.ru">
-                  <p>ivanov_bunina@mail.ru</p>
+              <a href="mailto:{{ work_email}}">
+                  <p>{{ work_email}}</p>
               </a>
 
               <div class="social">

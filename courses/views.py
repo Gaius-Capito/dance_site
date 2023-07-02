@@ -6,17 +6,45 @@ from users.models import UserAccess
 
 
 def courses(request):
+    if request.user.is_anonymous:
+        courses = Course.objects.all()
+        return render(request, 'courses/courses.html',
+                      {'courses': courses,
+                       'available_courses': []
+                       })
+    courses = Course.objects.all()
     user_access = UserAccess.objects.filter(user=request.user).first()
     if not user_access:
-        raise PermissionDenied
+        courses = Course.objects.all()
+        return render(request, 'courses/courses.html',
+                      {'courses': courses,
+                       'available_courses': []
+                       })
     available_courses = user_access.available_courses.all()
-    courses = Course.objects.filter(
+    available_courses = Course.objects.filter(
         id__in=available_courses.values_list('id', flat=True))
-    return render(request, 'courses/courses.html', {'courses': courses})
+    context = {'courses': courses,
+               'available_courses': available_courses,
+               }
+    return render(request, 'courses/courses.html', context)
 
 
 def video(request, slug):
+    if request.user.is_anonymous:
+        videos = Video.objects.filter(course_video__title='Панда')
+        return render(
+            request,
+            'courses/videolessons.html',
+            {'videos': videos}
+        )
     user_access = UserAccess.objects.filter(user=request.user).first()
+    if not user_access:
+        videos = Video.objects.filter(course_video__title='Панда')
+        return render(
+            request,
+            'courses/videolessons.html',
+            {'videos': videos}
+        )
     available_courses = user_access.available_courses.all()
     courses = Course.objects.filter(
         id__in=available_courses.values_list('id', flat=True))

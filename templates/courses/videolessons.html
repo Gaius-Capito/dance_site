@@ -20,7 +20,7 @@
         const items = [
             {% for video in videos %}
 
-               { id: {{ forloop.counter }}, name: '{{video.title}}', video: '{{ video.url }}' },
+               { id: {{ forloop.counter }}, name: '{{video.title}}', video: 'https://www.youtube.com/embed/{{ video.url }}' },
 
             {% endfor %}
         ]
