@@ -21,13 +21,13 @@
     </div>
 </div>
 
-{% if not user.is_authenticated %}
-  <button><a href="{% url 'users:login' %}">Авторизация</a></button>
-{% endif %}
-{% if user.is_authenticated %}
-  <button><a href="{% url 'users:logout' %}">Выход</a></button>
-  <p>{{ user.username }}</p>
-{% endif %}
+{#{% if not user.is_authenticated %}#}
+{#  <button><a href="{% url 'users:login' %}">Авторизация</a></button>#}
+{#{% endif %}#}
+{#{% if user.is_authenticated %}#}
+{#  <button><a href="{% url 'users:logout' %}">Выход</a></button>#}
+{#  <p>{{ user.username }}</p>#}
+{#{% endif %}#}
 
 <ion-icon class="menu" onclick="openMenu()" name="menu-outline"></ion-icon>
 

@@ -6,14 +6,34 @@ class Content(models.Model):
         'Название заглавной странички',
         max_length=120
     )
-    content_main = models.TextField()
-    title_about = models.CharField(max_length=120)
-    content_about = models.TextField()
+    content_main = models.TextField(
+        verbose_name='Описание заглавной странички'
+    )
+    title_about = models.CharField(
+        verbose_name='Название "О нас"',
+        max_length=120
+    )
+    content_about = models.TextField(verbose_name='Описание "О нас"')
+    vitalina_title = models.CharField(
+        verbose_name='Название раздела о Виталине',
+        max_length=120
+    )
+    vitalina_description = models.TextField(
+        verbose_name='Описание раздела о Виталине'
+    )
+    alexander_title = models.CharField(
+        verbose_name='Название раздела о Саше',
+        max_length=120
+    )
+    alexander_description = models.TextField(
+        verbose_name='Описание раздела о Саше'
+    )
     price = models.CharField(max_length=5)
 
     class Meta:
         verbose_name = 'Содержание главной страницы'
         verbose_name_plural = 'Содержание главной страницы'
+
 
 class Images(models.Model):
     image_about_us = models.ImageField(
